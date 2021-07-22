@@ -1,0 +1,27 @@
+<div class="main">
+  <header class="main__header">
+    <h1>
+      Фото-ссылки
+    </h1>
+    <button routerLink="add-photo">
+      Создать новые ссылки
+    </button>
+  </header>
+  <main>
+    <div *ngIf="elements.length > 0; else elseBlock" class="main__elements">
+      <div
+        class="main__elements-elem"
+        *ngFor="let i of elements"
+        [ngStyle]="{'animation': randomFunc(i.animation)}">
+        <a href="{{i.url}}" target="_blank">
+          <img src="{{i.base64}}" alt="img" class="elem__img">
+          <div class="watch" style="">
+            <img src="./assets/arrow.svg" alt="img">
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <ng-template #elseBlock>У вас нету ссылок на данный момент(</ng-template>
+  </main>
+</div>
