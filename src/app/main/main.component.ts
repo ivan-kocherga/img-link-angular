@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     if(type == 'left-right') return `left-right-animation ${getRandomInt(5, 15) / 10}s ease-in-out`
-    if(type == 'right-left') return `right-left-animation ${getRandomInt(5, 15) / 10}s ease-in-out`
+    return `right-left-animation ${getRandomInt(5, 15) / 10}s ease-in-out`
   }
 
 }
