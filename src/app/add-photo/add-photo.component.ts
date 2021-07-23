@@ -18,6 +18,7 @@ export class AddPhotoComponent implements OnInit {
     select: new FormControl('left-right', [Validators.required])
   })
 
+  croppedImage: string
   img: string = ''
 
   constructor(
@@ -43,9 +44,13 @@ export class AddPhotoComponent implements OnInit {
     this.img= 'data:image/png;base64,'+btoa(binaryString)
   }
 
+  fileChangeEvent(event: any): void {
+    this.croppedImage = event.base64
+  }
+
   submit(): void{
     let obj: ImgLinksModel = {
-      base64: this.img,
+      base64: this.croppedImage,
       url: this.form.value['url'],
       animation: this.form.value['select']
     }

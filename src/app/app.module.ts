@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './main/main.component';
 import { AppComponent } from './app.component';
 import { AddPhotoComponent } from './add-photo/add-photo.component';
-import { MainComponent } from './main/main.component';
-import {ReactiveFormsModule} from "@angular/forms";
+
 import {GenerationLinkImgService} from "./core/services/generation-link-img.service";
+
+import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from "@angular/forms";
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import {GenerationLinkImgService} from "./core/services/generation-link-img.serv
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ///
+    ImageCropperModule
   ],
   providers: [
     GenerationLinkImgService

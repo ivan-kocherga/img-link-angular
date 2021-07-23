@@ -1,12 +1,12 @@
 <div class="addPhoto">
   <header class="addPhoto__header">
     <h2>
-      Создать фото-ссылку
+      Create image-links
     </h2>
   </header>
   <form class="addPhoto__form" [formGroup]="form">
     <section class="addPhoto__form-inputFile">
-      <p>Выберите файл или перетащите его:</p>
+      <p>Select a file or drag and drop it:</p>
       <input formControlName="imgFile"  type="file" accept=".png, .jpg, .jpeg" (input)="handleFileSelect($event)">
       <div class="line" [ngClass]="{errorLine: form.controls['imgFile'].invalid}"></div>
     </section>
@@ -15,16 +15,21 @@
       <div class="line" [ngClass]="{errorLine: form.controls['url'].invalid}"></div>
     </section>
     <section class="addPhoto__form-select">
-      <p>Выберите тип анимации:</p>
+      <p>Select a type of animation:</p>
       <select formControlName="select" name="Выберите тип анимации">
-        <option value="left-right">С лево на право</option>
-        <option value="right-left">C права на лево</option>
+        <option value="left-right">From left to right</option>
+        <option value="right-left">From right to left</option>
       </select>
       <div class="line" [ngClass]="{errorLine: form.controls['select'].invalid}"></div>
     </section>
-    <button (click)="submit()" [disabled]="form.invalid">Готово</button>
+    <button (click)="submit()" [disabled]="form.invalid">Done</button>
   </form>
   <div class="previewImg" *ngIf="img !== ''">
-    <img src="{{img}}" alt="img">
+    <image-cropper
+      [imageBase64]="img"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 3"
+      (imageCropped)="fileChangeEvent($event)"
+    ></image-cropper>
   </div>
 </div>
