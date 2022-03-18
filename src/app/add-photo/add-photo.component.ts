@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ImgLinksModel } from '../core/models/img-links.model';
 import { GenerationLinkImgService } from '../core/services/generation-link-img.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-photo',
@@ -25,9 +25,6 @@ export class AddPhotoComponent implements OnInit {
     private generationLinkImg: GenerationLinkImgService,
     private router: Router
   ) { }
-
-  ngOnInit(): void {
-  }
 
   handleFileSelect(e): void{
     let files = e.target.files
